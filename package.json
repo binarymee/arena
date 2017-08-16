@@ -1,5 +1,5 @@
 {
-  "name": "bull-arena",
+  "name": "bull-arena-extended",
   "description": "An interactive UI dashboard for Bee Queue",
   "main": "index.js",
   "author": "Mixmax <hello@mixmax.com>",
@@ -22,6 +22,6 @@
   "engines": {
     "node": ">=7.6.0"
   },
-  "repository": "https://github.com/bee-queue/arena.git",
-  "version": "2.1.1"
+  "repository": "https://github.com/binarymee/arena",
+  "version": "1.0.0"
 }

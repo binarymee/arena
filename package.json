@@ -1,5 +1,5 @@
 {
-  "name": "bull-arena",
+  "name": "bull-arena-extended",
   "description": "An interactive UI dashboard for Bee Queue",
   "main": "index.js",
   "author": "Mixmax <hello@mixmax.com>",

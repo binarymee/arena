@@ -23,7 +23,7 @@
                 class="active"
               {{/eq}}>
 
-              <a href="{{ basePath }}/{{ encodeURI ../queueHost }}/{{ encodeURI ../queueName }}/{{ ../state }}?page={{ this }}&amp;pageSize={{ ../pageSize }}">{{ this }}</a>
+              <a href="{{ ../basePath }}/{{ encodeURI ../queueHost }}/{{ encodeURI ../queueName }}/{{ ../state }}?page={{ this }}&amp;pageSize={{ ../pageSize }}">{{ this }}</a>
             </li>
           {{/each}}
           <li
@@ -43,6 +43,9 @@
     {{/unless}}
   </div>
   <div class="col-sm-6 text-right">
+    <a href="{{ basePath }}/{{ encodeURI queueHost }}/{{ encodeURI queueName }}/{{ state }}.json" type="button" class="btn btn-primary">
+      Dump jobs to JSON (limited to 1000)
+    </a>
     <button type="button" data-action="remove" data-queue-name="{{ queueName }}" data-queue-host="{{ queueHost }}" data-queue-state="{{ state }}" class="js-bulk-action btn btn-danger">
       Remove Jobs
     </button>
@@ -90,11 +93,18 @@
               <input class="js-bulk-job" name="jobChecked" type="checkbox" />
             </div>
 
-            <a role="button" data-toggle="collapse" href="#collapse{{this.id}}">
-              <h4 class="header-collapse">{{ this.id }}</h4>
+            <a role="button" data-toggle="collapse" href="#collapse{{hashIdAttr this.id}}">
+              <h4 class="header-collapse">
+                <span class="label label-default">{{ this.id }}</span>
+                {{#if this.data.name}}
+                  <span style="margin-left: 8px">{{ this.data.name }}</span>
+                {{else if this.name}}
+                  <span style="margin-left: 8px">{{ this.name }}</span>
+                {{/if}}
+              </h4>
             </a>
-            <div id="collapse{{this.id}}" class="collapse">
-              {{> dashboard/jobDetails this basePath=../basePath displayJobInline=true queueName=../queueName queueHost=../queueHost jobState=../state }}
+            <div id="collapse{{hashIdAttr this.id}}" class="collapse">
+              {{~> dashboard/jobDetails this basePath=../basePath displayJobInline=true queueName=../queueName queueHost=../queueHost jobState=../state }}
             </div>
           </li>
         {{/each}}

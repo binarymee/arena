@@ -1,11 +1,18 @@
 {
   "__example_queues": [
     {
-      "name": "my_queue",
-      "port": 6381,
+      "name": "Reports",
+      "port": 6379,
       "host": "127.0.0.1",
-      "hostId": "AWS Server 2"
+      "hostId": "AWS Server 2",
+      "prefix": "bull"
     }
   ],
-  "queues": []
+  "queues": [{
+      "name": "Reports",
+      "port": 6379,
+      "host": "localhost",
+      "hostId": "AWS Server 2",
+      "prefix": "bull"
+    }]
 }

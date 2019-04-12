@@ -13,15 +13,18 @@ module.exports = function() {
   });
 
   require('handlebars-helpers')({handlebars});
-  require('./views/helpers/handlebars')(handlebars);
 
   const app = express();
 
   const defaultConfig = require(path.join(__dirname, 'config', 'index.json'));
 
   const Queues = require('./queue');
-  app.locals.Queues = new Queues(defaultConfig);
-  app.locals.basePath = '';
+
+  const queues = new Queues(defaultConfig);
+  require('./views/helpers/handlebars')(handlebars, { queues });
+  app.locals.Queues = queues;
+  app.locals.appBasePath = '';
+  app.locals.vendorPath = '/vendor';
 
   app.set('views', `${__dirname}/views`);
   app.set('view engine', 'hbs');

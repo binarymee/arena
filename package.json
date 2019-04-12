@@ -25,5 +25,5 @@
     "node": ">=7.6.0"
   },
   "repository": "https://github.com/binarymee/arena",
-  "version": "2.0.0"
+  "version": "2.0.1"
 }

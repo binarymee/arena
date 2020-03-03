@@ -1,5 +1,13 @@
 ## Release History
 
+* 2.7.1 Fix add job functionality (#197) - thanks @bogdan!
+
+* 2.7.0 Job logs show up for bull queue jobs (#210) - thanks @ganeshcse2991!
+
+* 2.6.4 Fix circular dependency issue when viewing failed jobs (#183) - thanks @ghmeier!
+
+* 2.6.3 Pull in handlebars security advisory patch (#168) - thanks @pklingem!
+
 * 2.6.2 Fix "add job" vendor/API path when basePath is set (#157) - thanks, @jacobpgn
 
 * 2.6.1 Hot patch: commit /vendor assets to fix new UI.
